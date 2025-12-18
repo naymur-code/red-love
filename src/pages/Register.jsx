@@ -4,6 +4,7 @@ import { auth } from "../firebase/firebase.config";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Register = () => {
   const [districts, setDistricts] = useState([])
@@ -11,6 +12,8 @@ const Register = () => {
   const [error, setError] = useState('')
   const { setUser } = useContext(AuthContext)
   const navigate = useNavigate()
+  const axiosSecure=useAxiosSecure()
+
   useEffect(() => {
     axios.get('districts.json')
       .then(res => setDistricts(res.data.districts)
@@ -78,7 +81,13 @@ const Register = () => {
             displayName: name,
             photoURL: mainPhotoUrl,
           });
+
+          axiosSecure.post("/users", userInfo)
+            .then(res => console.log(res))
+            .catch(error => console.log(error))
+
           navigate('/')
+
         })
         .catch(error => setError(error.message))
     }

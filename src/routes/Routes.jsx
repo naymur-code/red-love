@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dash from "../pages/Dash";
 import PrivateRoute from "./PrivateRoute";
+import Users from "../pages/users";
 
 export const router = createBrowserRouter([
   {
@@ -17,9 +18,12 @@ export const router = createBrowserRouter([
       { path: '/home', element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
-      { path: '/dash', element: <PrivateRoute>
-        <Dash /> 
-      </PrivateRoute>},
+      { path: '/users', element: <Users /> },
+      {
+        path: '/dash', element: <PrivateRoute>
+          <Dash />
+        </PrivateRoute>
+      },
     ]
   },
 ]);
