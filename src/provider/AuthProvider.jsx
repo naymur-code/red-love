@@ -2,12 +2,17 @@ import { onAuthStateChanged } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase.config';
 import Loader from '../Utility/Loader';
+import axios from 'axios';
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null)
+
+
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [role, setRole] = useState([])
+    const [userStatus, setUserStatus] = useState([])
 
 
     useEffect(() => {
@@ -19,13 +24,28 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
+    // current user role and status
+    useEffect(() => {
+        if (!user) return
+        axios.get(`http://localhost:3000/users/role/${user?.email}`)
+            .then(res => {
+                setRole(res.data.role)
+                setUserStatus(res.data.status)
+            })
+            .catch(error => console.log(error))
+    }, [user])
+
+
+
+
     const info = {
         user,
         setUser,
         loading,
-        setLoading
+        setLoading,
+        userStatus,
+        role
     }
-    console.log(user);
 
     if (loading) {
         return <Loader />

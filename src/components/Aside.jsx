@@ -4,16 +4,18 @@ import {
   ArrowLeftOnRectangleIcon,
   ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Aside = () => {
+  const { role } = useContext(AuthContext)
   const navClass = ({ isActive }) =>
     `group relative flex items-center gap-3 px-4 py-2.5 rounded-md transition-all
-     ${
-       isActive
-         ? "bg-red-600 text-white shadow"
-         : "text-red-100 hover:bg-red-700/60"
-     }`;
+     ${isActive
+      ? "bg-red-600 text-white shadow"
+      : "text-red-100 hover:bg-red-700/60"
+    }`;
 
   return (
     <aside className="h-screen w-64 bg-gradient-to-b from-red-700 via-red-800 to-red-900 flex flex-col">
@@ -47,10 +49,12 @@ const Aside = () => {
           <span>Manage Product</span>
         </NavLink>
 
-        <NavLink to="/dashboard/all-users" className={navClass}>
-          <UsersIcon className="h-5 w-5" />
-          <span>All Users</span>
-        </NavLink>
+        {
+          role == 'admin' && <NavLink to="/dashboard/all-users" className={navClass}>
+            <UsersIcon className="h-5 w-5" />
+            <span>All Users</span>
+          </NavLink>
+        }
 
         <NavLink to="/users" className={navClass}>
           <UsersIcon className="h-5 w-5" />

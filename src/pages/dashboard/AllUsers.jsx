@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState('all');
     const axiosSecure = useAxiosSecure();
+
 
     const allUserDataLoad = () => {
         axiosSecure.get('/users')
@@ -15,9 +17,6 @@ const AllUsers = () => {
         allUserDataLoad()
 
     }, [axiosSecure]);
-
-
-
 
 
     // 🔍 Filter users
