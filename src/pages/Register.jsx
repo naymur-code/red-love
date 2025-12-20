@@ -15,13 +15,13 @@ const Register = () => {
   const axiosSecure=useAxiosSecure()
 
   useEffect(() => {
-    axios.get('districts.json')
+    axios.get('/districts.json')
       .then(res => setDistricts(res.data.districts)
       )
       .catch(error => console.log(error)
       )
 
-    axios.get('upazilas.json')
+    axios.get('/upazilas.json')
       .then(res => setUpazilas(res.data.upazilas)
       )
       .catch(error => setError(error.message)
@@ -92,7 +92,6 @@ const Register = () => {
         .catch(error => setError(error.message))
     }
 
-    console.log(userInfo);
 
 
   };

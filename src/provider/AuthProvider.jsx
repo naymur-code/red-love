@@ -11,7 +11,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [role, setRole] = useState([])
+    const [role, setRole] = useState('')
     const [userStatus, setUserStatus] = useState([])
 
 

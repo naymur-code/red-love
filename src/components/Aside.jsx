@@ -16,7 +16,6 @@ const Aside = () => {
       ? "bg-red-600 text-white shadow"
       : "text-red-100 hover:bg-red-700/60"
     }`;
-
   return (
     <aside className="h-screen w-64 bg-gradient-to-b from-red-700 via-red-800 to-red-900 flex flex-col">
 
@@ -43,14 +42,18 @@ const Aside = () => {
           <ClipboardDocumentListIcon className="h-5 w-5" />
           <span>Add Request</span>
         </NavLink>
+        <NavLink to="/dashboard/my-request" className={navClass}>
+          <ClipboardDocumentListIcon className="h-5 w-5" />
+          <span>My Request</span>
+        </NavLink>
 
         <NavLink to="/dashboard/mange-product" className={navClass}>
           <ClipboardDocumentListIcon className="h-5 w-5" />
           <span>Manage Product</span>
         </NavLink>
 
-        {
-          role == 'admin' && <NavLink to="/dashboard/all-users" className={navClass}>
+        { role=='admin'&&
+          <NavLink to="/dashboard/all-users" className={navClass}>
             <UsersIcon className="h-5 w-5" />
             <span>All Users</span>
           </NavLink>

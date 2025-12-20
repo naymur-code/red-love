@@ -10,6 +10,8 @@ import Users from "../pages/users";
 import DashboardRoot from "../layout/DashboardRoot";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AllUsers from "../pages/dashboard/AllUsers";
+import MyRequest from "../pages/dashboard/MyRequest";
+import AddRequest from "../pages/dashboard/AddRequest";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +39,9 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Dashboard /> },
-      { path:'all-users', element: <AllUsers /> }
+      { path: 'all-users', element: <AllUsers /> },
+      { path: 'my-request', element: <MyRequest /> },
+      { path: 'add-request', element: <AddRequest /> },
 
     ]
 
