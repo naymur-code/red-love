@@ -12,6 +12,8 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import AllUsers from "../pages/dashboard/AllUsers";
 import MyRequest from "../pages/dashboard/MyRequest";
 import AddRequest from "../pages/dashboard/AddRequest";
+import Donate from "../pages/Donate";
+import PaymentSuccess from "../pages/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,8 @@ export const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/users', element: <Users /> },
+      { path: '/donate', element: <Donate /> },
+      { path: '/payment-success', element: <PaymentSuccess /> },
       {
         path: '/dash', element: <PrivateRoute>
           <Dash />

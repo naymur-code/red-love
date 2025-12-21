@@ -15,7 +15,7 @@ const MyRequest = () => {
                 setTotalRequest(res.data.totalRequest);
             })
             .catch(error => console.log(error));
-    }, [axiosSecure, currentPage]);
+    }, [axiosSecure, currentPage, itemsPerPage]);
 
     const numberOfPage = Math.ceil(totalRequest / itemsPerPage);
     const pages = [...Array(numberOfPage).keys()].map(e => e + 1);
