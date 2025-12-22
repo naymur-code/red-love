@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Container from '../components/Container';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { NavLink } from 'react-router';
 
 const SearchRequest = () => {
+      const [requests, setRequests] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [upazilas, setUpazilas] = useState([]);
   const [error, setError] = useState('');
@@ -30,20 +32,20 @@ const SearchRequest = () => {
     axiosSecure.get(
       `/search-request?bloodGroup=${bloodGroup}&upazila=${upazila}&district=${district}`
     )
-      .then(res => console.log(res.data))
+      .then(res => setRequests(res.data))
       .catch(() => setError('Search failed'));
   };
-
+console.log(requests);
   return (
     <Container>
-      <div className="min-h-[70vh] flex items-center justify-center px-4">
+      <div className="min-h-[42vh] flex items-center justify-center px-4">
 
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-8">
 
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-red-600">
-              Search Donors
+              Search Donors Request
             </h1>
             <p className="text-gray-500 mt-2">
               Find blood donation requests near your location
@@ -134,8 +136,61 @@ const SearchRequest = () => {
 
           </form>
 
+           
+
         </div>
       </div>
+
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 my-10">
+                                  {requests.map(data => (
+                                      <div
+                                          key={data._id}
+                                          className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6 border"
+                                      >
+                                          {/* Blood Group Badge */}
+                                          <div className="flex justify-between items-center mb-4">
+                                              <span className="px-4 py-1 rounded-full bg-red-100 text-red-600 font-bold">
+                                                  {data.bloodGroup}
+                                              </span>
+                                              <span className="text-sm text-gray-400">
+                                                  Pending
+                                              </span>
+                                          </div>
+          
+                                          {/* Info */}
+                                          <div className="space-y-2 text-gray-700">
+                                              <p>
+                                                  <span className="font-semibold">Recipient:</span>{' '}
+                                                  {data.recipientName}
+                                              </p>
+                                              <p>
+                                                  <span className="font-semibold">Location:</span>{' '}
+                                                  {data.district}, {data.upazila}
+                                              </p>
+                                              <p>
+                                                  <span className="font-semibold">Date:</span>{' '}
+                                                  {data.recipientDate}
+                                              </p>
+                                              <p>
+                                                  <span className="font-semibold">Time:</span>{' '}
+                                                  {data.donationTime}
+                                              </p>
+                                          </div>
+          
+                                          {/* Action */}
+                                          <div className="mt-6">
+                                              <NavLink to={`/view-details/${data._id}`}>
+                                                  <button
+                                                      className="w-full btn btn-outline btn-error"
+                                                  >
+                                                      View Details
+                                                  </button>
+                                              </NavLink>
+                                          </div>
+                                      </div>
+                                  ))}
+                              </div>
+
     </Container>
   );
 };

@@ -10,7 +10,7 @@ const PaymentSuccess = () => {
     if (!sessionId) return;
 
     axios
-      .post(`http://localhost:3000/success-payment?session_id=${sessionId}`)
+      .post(`https://red-love-backend.vercel.app/success-payment?session_id=${sessionId}`)
       .then(res => console.log(res.data))
       .catch(error => console.log(error));
   }, [sessionId]);

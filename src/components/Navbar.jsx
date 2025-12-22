@@ -16,7 +16,6 @@ const Navbar = () => {
     { name: "All Request", to: "/all-request", roles: ["donor", "admin"] },
     { name: "Search Donors", to: "/search-request", roles: ["guest", "donor", "admin"] },
     { name: "Dashboard", to: "/dashboard", roles: ["donor", "admin"] },
-    { name: "Users", to: "/users", roles: ["admin"] }, // only admin can see
   ];
 
   const navLinkClass = (path) =>

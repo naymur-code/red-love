@@ -44,7 +44,7 @@ const MyProfile = () => {
       <div className="flex flex-col justify-center items-center gap-3 mt-10">
         <h1 className="font-bold text-5xl ">My Profile</h1>
         <p className="text-xl">
-          Manage your account and access exclusive pet care features
+          Manage your account and access exclusive Red love features
         </p>
       </div>
 

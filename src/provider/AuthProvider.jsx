@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
     // current user role and status
     useEffect(() => {
         if (!user) return
-        axios.get(`http://localhost:3000/users/role/${user?.email}`)
+        axios.get(`https://red-love-backend.vercel.app/users/role/${user?.email}`)
             .then(res => {
                 setRole(res.data.role)
                 setUserStatus(res.data.status)

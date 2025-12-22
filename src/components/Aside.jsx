@@ -7,6 +7,7 @@ import {
 import { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import { UserCircleIcon } from "@heroicons/react/16/solid";
 
 const Aside = () => {
   const { role } = useContext(AuthContext)
@@ -37,24 +38,34 @@ const Aside = () => {
           <HomeIcon className="h-5 w-5" />
           <span>Dashboard</span>
         </NavLink>
+        {role == 'donor' &&
+          <>
+            <NavLink to="/dashboard/add-request" className={navClass}>
+              <ClipboardDocumentListIcon className="h-5 w-5" />
+              <span>Add Request</span>
+            </NavLink>
+            <NavLink to="/dashboard/my-request" className={navClass}>
+              <ClipboardDocumentListIcon className="h-5 w-5" />
+              <span>My Request</span>
+            </NavLink>
+          </>
+        }
 
-        <NavLink to="/dashboard/add-request" className={navClass}>
-          <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>Add Request</span>
-        </NavLink>
-        <NavLink to="/dashboard/my-request" className={navClass}>
-          <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>My Request</span>
-        </NavLink>
-        <NavLink to="/dashboard/add-volunteer" className={navClass}>
-          <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>Add Volunteer</span>
-        </NavLink>
 
-      <NavLink to="/dashboard/all-request" className={navClass}>
-          <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>All Request</span>
-        </NavLink>
+        {role == 'admin' &&
+          <NavLink to="/dashboard/add-volunteer" className={navClass}>
+            <ClipboardDocumentListIcon className="h-5 w-5" />
+            <span>Add Volunteer</span>
+          </NavLink>
+        }
+
+
+        {['admin', 'volunteer'].includes(role) && (
+          <NavLink to="/dashboard/all-request" className={navClass}>
+            <ClipboardDocumentListIcon className="h-5 w-5" />
+            <span>All Request</span>
+          </NavLink>
+        )}
 
         {role == 'admin' &&
           <NavLink to="/dashboard/all-users" className={navClass}>
@@ -64,8 +75,8 @@ const Aside = () => {
         }
 
         <NavLink to="/dashboard/my-profile" className={navClass}>
-          <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>MY Profile</span>
+          <UserCircleIcon className="h-5 w-5" />
+          <span>My Profile</span>
         </NavLink>
       </nav>
 

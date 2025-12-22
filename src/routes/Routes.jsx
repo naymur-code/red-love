@@ -6,7 +6,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dash from "../pages/Dash";
 import PrivateRoute from "./PrivateRoute";
-import Users from "../pages/users";
 import DashboardRoot from "../layout/DashboardRoot";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AllUsers from "../pages/dashboard/AllUsers";
@@ -32,7 +31,6 @@ export const router = createBrowserRouter([
       { path: '/home', element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
-      { path: '/users', element: <Users /> },
       { path: '/donate', element: <PrivateRoute>
         <Donate /> 
       </PrivateRoute>},

@@ -49,7 +49,7 @@ const Dashboard = () => {
                     <th className="px-6 py-4">Date</th>
                     <th className="px-6 py-4">Time</th>
                     <th className="px-6 py-4">Status</th>
-                    <th className="px-6 py-4 text-center">Actions</th>
+                    {/* <th className="px-6 py-4 text-center">Actions</th> */}
                   </tr>
                 </thead>
 
@@ -97,7 +97,7 @@ const Dashboard = () => {
                       </td>
 
                       {/* Actions */}
-                      <td className="px-6 py-4 text-center space-x-2">
+                      {/* <td className="px-6 py-4 text-center space-x-2">
 
                         <NavLink to={`/dashboard/request/${req._id}`}>
                           <button className="btn btn-xs btn-outline">
@@ -129,7 +129,7 @@ const Dashboard = () => {
                             </button>
                           </>
                         )}
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>

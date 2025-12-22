@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const AddRequest = () => {
     const { user } = useContext(AuthContext)
     const [districts, setDistricts] = useState([])
     const [upazilas, setUpazilas] = useState([])
     const [error, setError] = useState([])
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
         axios.get('/districts.json')
@@ -52,10 +53,19 @@ const AddRequest = () => {
             donation_status: 'pending'
         }
 
-        axiosSecure.post('/request',formData)
-        .then(res=>console.log(res))
-        .catch(error=>console.log(error))
-  
+        axiosSecure.post('/request', formData)
+            .then(res => {
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        title: "Donation request successful!",
+                        icon: "success",
+                        draggable: true
+                    });
+                    form.reset()
+                }
+            })
+            .catch(error => console.log(error))
+
     }
     return (
         <div>
