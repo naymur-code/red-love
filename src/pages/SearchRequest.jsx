@@ -43,7 +43,7 @@ const SearchRequest = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-red-600">
-              Search Blood Requests
+              Search Donors
             </h1>
             <p className="text-gray-500 mt-2">
               Find blood donation requests near your location
@@ -75,7 +75,7 @@ const SearchRequest = () => {
                 <option value="" disabled selected>
                   Select blood group
                 </option>
-                {['A+','A-','B+','B-','AB+','AB-','O+','O-'].map(bg => (
+                {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map(bg => (
                   <option key={bg} value={bg}>{bg}</option>
                 ))}
               </select>
@@ -127,7 +127,8 @@ const SearchRequest = () => {
                 type="submit"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition"
               >
-                Search Requests
+                Search Donors
+
               </button>
             </div>
 

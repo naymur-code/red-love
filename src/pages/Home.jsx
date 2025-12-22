@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './Banner';
+import FeatureSupport from './FeaturedSupport';
 
 const Home = () => {
     return (
         <div>
-            <h1>home page</h1>
+            <Banner/>
+            <FeatureSupport/>
         </div>
     );
 };

@@ -33,7 +33,7 @@ const Aside = () => {
           Menu
         </p>
 
-        <NavLink to="/dashboard" className={navClass}>
+        <NavLink to="/dashboard" end className={navClass}>
           <HomeIcon className="h-5 w-5" />
           <span>Dashboard</span>
         </NavLink>
