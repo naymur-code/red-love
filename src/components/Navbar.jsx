@@ -18,6 +18,12 @@ const Navbar = () => {
                 <NavLink to="/donate">Donate</NavLink>
             </li>
             <li>
+                <NavLink to="/all-request">All Request</NavLink>
+            </li>
+            <li>
+                <NavLink to="/search-request">Search Request</NavLink>
+            </li>
+            <li>
                 <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li>

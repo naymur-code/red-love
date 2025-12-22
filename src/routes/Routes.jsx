@@ -14,6 +14,10 @@ import MyRequest from "../pages/dashboard/MyRequest";
 import AddRequest from "../pages/dashboard/AddRequest";
 import Donate from "../pages/Donate";
 import PaymentSuccess from "../pages/PaymentSuccess";
+import PaymentCancelled from "../pages/PaymentCancelled";
+import SearchRequest from "../pages/SearchRequest";
+import AllRequest from "../pages/AllRequest";
+import ViewDetailsRequest from "../pages/ViewDetailsRequest";
 
 export const router = createBrowserRouter([
   {
@@ -26,8 +30,14 @@ export const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/users', element: <Users /> },
-      { path: '/donate', element: <Donate /> },
+      { path: '/donate', element: <PrivateRoute>
+        <Donate /> 
+      </PrivateRoute>},
       { path: '/payment-success', element: <PaymentSuccess /> },
+      { path: '/payment-cancelled', element: <PaymentCancelled /> },
+      { path: '/search-request', element: <SearchRequest /> },
+      { path: '/all-request', element: <AllRequest/> },
+      { path: '/view-details/:id', element: <ViewDetailsRequest/> },
       {
         path: '/dash', element: <PrivateRoute>
           <Dash />
