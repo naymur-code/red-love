@@ -18,6 +18,9 @@ import PaymentCancelled from "../pages/PaymentCancelled";
 import SearchRequest from "../pages/SearchRequest";
 import AllRequest from "../pages/AllRequest";
 import ViewDetailsRequest from "../pages/ViewDetailsRequest";
+import AddVolunteer from "../pages/dashboard/AddVolunteer";
+import MyProfile from "../pages/dashboard/MyProfile";
+import ShowAllRequest from "../pages/dashboard/ShowAllRequest";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +59,9 @@ export const router = createBrowserRouter([
       { path: 'all-users', element: <AllUsers /> },
       { path: 'my-request', element: <MyRequest /> },
       { path: 'add-request', element: <AddRequest /> },
+      { path: 'add-volunteer', element: <AddVolunteer /> },
+      { path: 'my-profile', element: <MyProfile/> },
+      { path: 'all-request', element: <ShowAllRequest/> },
 
     ]
 

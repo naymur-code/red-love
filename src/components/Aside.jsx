@@ -33,7 +33,7 @@ const Aside = () => {
           Menu
         </p>
 
-        <NavLink to="/dashboard/main" className={navClass}>
+        <NavLink to="/dashboard" className={navClass}>
           <HomeIcon className="h-5 w-5" />
           <span>Dashboard</span>
         </NavLink>
@@ -46,22 +46,26 @@ const Aside = () => {
           <ClipboardDocumentListIcon className="h-5 w-5" />
           <span>My Request</span>
         </NavLink>
-
-        <NavLink to="/dashboard/mange-product" className={navClass}>
+        <NavLink to="/dashboard/add-volunteer" className={navClass}>
           <ClipboardDocumentListIcon className="h-5 w-5" />
-          <span>Manage Product</span>
+          <span>Add Volunteer</span>
         </NavLink>
 
-        { role=='admin'&&
+      <NavLink to="/dashboard/all-request" className={navClass}>
+          <ClipboardDocumentListIcon className="h-5 w-5" />
+          <span>All Request</span>
+        </NavLink>
+
+        {role == 'admin' &&
           <NavLink to="/dashboard/all-users" className={navClass}>
             <UsersIcon className="h-5 w-5" />
             <span>All Users</span>
           </NavLink>
         }
 
-        <NavLink to="/users" className={navClass}>
-          <UsersIcon className="h-5 w-5" />
-          <span>Users</span>
+        <NavLink to="/dashboard/my-profile" className={navClass}>
+          <ClipboardDocumentListIcon className="h-5 w-5" />
+          <span>MY Profile</span>
         </NavLink>
       </nav>
 
